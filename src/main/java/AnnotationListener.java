@@ -19,7 +19,7 @@ public class AnnotationListener {
         } catch (RateLimitException | DiscordException e) {
             e.printStackTrace();
         }
-//
+
     }
 
     @EventSubscriber
