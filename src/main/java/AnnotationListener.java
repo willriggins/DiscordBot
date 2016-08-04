@@ -44,17 +44,24 @@ public class AnnotationListener {
             builder.withChannel(event.getMessage().getChannel()).withContent("You're a real winner, " + event.getMessage().getAuthor().getName() + "!").build();
         }
         else if (event.getMessage().getContent().equalsIgnoreCase("!test1")) {
-            for (int i = 1; i < 11; i++) {
+            for (int i = 2; i < 11; i++) {
                 final int i2 = i;
                 RequestBuffer.request(() -> {
                     try {
-                        builder.withContent("Eat " + i2 + " cookies.").build();
+                        builder.withContent(i2 + ". Spamming lines.").build();
                     } catch (DiscordException | MissingPermissionsException e) {
                         e.printStackTrace();
                     }
                     return null;
                 });
             }
+        }
+        else if (event.getMessage().getContent().equalsIgnoreCase("!help")) {
+            builder.withChannel(event.getMessage().getChannel()).withContent("You can type any of these commands: \n" +
+                    "\n !truth" +
+                    "\n !truth2" +
+                    "\n !truth3").build();
+
         }
        // want to be able to pass in a name after the command and make it emote on that person
 
